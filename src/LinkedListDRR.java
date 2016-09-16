@@ -11,5 +11,4 @@ public class LinkedListDRR<E extends Comparable<E>> {
     public LinkedListDRR() {
         head = null;
     }
-
-    public }
+}
