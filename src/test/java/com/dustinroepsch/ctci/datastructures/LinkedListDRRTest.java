@@ -52,4 +52,30 @@ public class LinkedListDRRTest {
         assertTrue(list.get(0).equals("Hello") && list.get(1).equals("World"));
     }
 
+    @Test
+    public void testRemove() {
+        LinkedListDRR<String> list = new LinkedListDRR<String>();
+        list.add("Hello");
+        list.remove(0);
+        assertEquals(0, list.size());
+    }
+
+    @Test
+    public void testRemoveMultiple() {
+        LinkedListDRR<String> list = new LinkedListDRR<String>();
+        list.add("Hello");
+        list.add("My");
+        list.add("Name");
+        list.add("is");
+        list.add("Dustin");
+        list.remove(0);
+        list.remove(2);
+        assertTrue(
+                list.get(0).equals("My") &&
+                        list.get(1).equals("Name") &&
+                        list.get(2).equals("Dustin") &&
+                        list.size() == 3
+        );
+    }
+
 }
