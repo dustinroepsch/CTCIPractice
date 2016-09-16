@@ -112,4 +112,16 @@ public class LinkedListDRR<E extends Comparable<E>> {
         return true;
     }
 
+    @Override
+    public int hashCode() {
+        if (size() == 0) {
+            return 0;
+        }
+        int result = 1;
+        Node<E> current = head;
+        while (current != null) {
+            result = 37 * result + current.value.hashCode();
+        }
+        return result;
+    }
 }
