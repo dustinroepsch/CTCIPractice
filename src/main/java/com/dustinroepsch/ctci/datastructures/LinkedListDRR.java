@@ -1,3 +1,5 @@
+package com.dustinroepsch.ctci.datastructures;
+
 /**
  * Created by Dustin Ryan-Roepsch on 9/15/2016.
  */
@@ -8,6 +10,13 @@ public class LinkedListDRR<E extends Comparable<E>> {
     public LinkedListDRR() {
         head = null;
         size = 0;
+    }
+
+    public LinkedListDRR(E[] arr) {
+        this();
+        for (E element : arr) {
+            this.add(element);
+        }
     }
 
     public void add(E element) {
@@ -77,4 +86,30 @@ public class LinkedListDRR<E extends Comparable<E>> {
         sb.append(']');
         return sb.toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o.getClass() != this.getClass()) {
+            return false;
+        }
+        LinkedListDRR<E> other = (LinkedListDRR<E>) o;
+        if (this.size() != other.size()) {
+            return false;
+        }
+        if (this.size() == 0 && other.size() == 0) {
+            return true;
+        }
+        Node<E> thisCurrent = this.head;
+        Node<E> otherCurrent = other.head;
+
+        while (thisCurrent != null) {
+            if (!thisCurrent.value.equals(otherCurrent.value)) {
+                return false;
+            }
+            thisCurrent = thisCurrent.next;
+            otherCurrent = otherCurrent.next;
+        }
+        return true;
+    }
+
 }
