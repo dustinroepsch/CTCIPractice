@@ -31,8 +31,9 @@ public class LinkedListDRR<E extends Comparable<E>> {
         while (current.next != null) {
             sb.append(current.value.toString());
             sb.append(',');
+            current = current.next;
         }
-        sb.append(current);
+        sb.append(current.value.toString());
         sb.append(']');
         return sb.toString();
     }
